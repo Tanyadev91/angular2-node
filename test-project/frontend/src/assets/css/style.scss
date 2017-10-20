@@ -1,0 +1,22 @@
+html{
+    background:rgb(245, 245, 245);
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+app-root{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main_content{
+  height: calc(100% - 84px);
+  padding: 20px 20px 0;
+}
+header.header{
+  position: relative;
+  z-index: 1;
+}

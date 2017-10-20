@@ -1,0 +1,17 @@
+.wr_row{
+  &--submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  p{
+    margin: 0;
+  }
+  .register_btn{
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}

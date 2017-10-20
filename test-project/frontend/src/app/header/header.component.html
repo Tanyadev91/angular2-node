@@ -1,0 +1,10 @@
+<nav class='header_navigation'>
+  <mat-toolbar color='primary' class="navigation">
+    <a mat-icon-button routerLink='/'>
+      <mat-icon>home</mat-icon>
+    </a>
+    <a mat-button routerLink='categories'>Categories</a>
+    <a mat-button (click)="open_add_person_dialog()">Add person</a>
+    <a class="pull_right" mat-button (click)="open_login_dialog()">Login</a>
+  </mat-toolbar>
+</nav>

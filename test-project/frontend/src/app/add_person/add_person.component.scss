@@ -1,0 +1,32 @@
+.add_person{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.mat-slide-toggle{
+  color:rgba(0,0,0,.54);
+  &.mat-checked{
+    color:#000;
+  }
+}
+mat-form-field{
+  width: 100%;
+}
+mat-chip.mat-caption{
+  cursor: pointer;
+}
+
+.form{
+  &_row{
+    &:not(:last-child){
+      margin-bottom: 10px;
+    }
+    &--6{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  &_col{
+     width: 48%;
+  }
+}

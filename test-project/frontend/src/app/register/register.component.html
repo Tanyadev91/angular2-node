@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Registration</h1>
+<form  #f="ngForm" novalidate>
+  <div mat-dialog-content>
+    <div class="wr_row">
+      <mat-form-field>
+        <input matInput  placeholder="Login" name="login"
+               [(ngModel)]="model.login"
+               required>
+      </mat-form-field>
+    </div>
+    <div class="wr_row">
+      <mat-form-field>
+        <input matInput type="password" name="password" placeholder="Password"
+               (keyup)="test()"
+               [(ngModel)]="model.password"
+               required
+               #password="ngModel">
+      </mat-form-field>
+    </div>
+    <div class="wr_row">
+      <mat-form-field class="mat-form-field-invalid">
+
+        <input matInput type="password" name="confirm_password"  placeholder="Confirm password" required
+               [pattern]="conf_pass"
+        >
+      </mat-form-field>
+      <mat-error *ngIf="">
+        Please enter a valid email address
+      </mat-error>
+    </div>
+  </div>
+  <div class="wr_row wr_row--submit" mat-dialog-actions >
+    <button mat-raised-button>Register</button>
+  </div>
+</form>

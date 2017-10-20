@@ -1,0 +1,32 @@
+<ul class='cart'>
+  <li *ngFor="let i of list" class='cart_item'>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="mat-title">{{i.name}} {{i.surname}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="cart__row">
+          <b>Gender:</b> {{i.gender===1 ? 'Male' : 'Female'}}
+        </div>
+        <div class="cart__row" *ngIf="i.show_age">
+          <b>Birthday:</b> {{i.birthday | date:"MM/dd/yy"}} ({{i.age}} age)
+        </div>
+        <div class="cart__row">
+          <b>Email:</b> {{i.email}}
+        </div>
+        <div class="cart__row">
+          <b>About:</b>
+          <p>{{i.about}}</p>
+        </div>
+        <div class="cart__row">
+          <b>Tags:</b>
+          <i *ngFor="let tag of i.tags">
+            #{{tag}}
+          </i>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </li>
+</ul>

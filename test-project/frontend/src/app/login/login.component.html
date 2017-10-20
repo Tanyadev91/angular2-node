@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Login</h1>
+<form #f="ngForm" novalidate (submit)="f.valid && login(f)">
+  <div mat-dialog-content>
+      <div class="wr_row">
+        <mat-form-field>
+          <input matInput [(ngModel)]="model.login" placeholder="Login" name="login" required>
+        </mat-form-field>
+      </div>
+      <div class="wr_row">
+        <mat-form-field>
+          <input matInput type="password" minlength="4" name="password" [(ngModel)]="model.password" placeholder="Password" required>
+        </mat-form-field>
+      </div>
+    <div class="wr_row no_enter">Incorrect login or password</div>
+  </div>
+  <div class="wr_row wr_row--submit" mat-dialog-actions >
+    <button mat-raised-button>Login</button>
+    <p>or <span class="register_btn" (click)="register_dialog()">register</span></p>
+  </div>
+</form>

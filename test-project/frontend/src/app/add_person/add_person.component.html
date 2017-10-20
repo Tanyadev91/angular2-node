@@ -1,0 +1,91 @@
+<div class="add_person">
+  <h1 class="mat-display-1">Add person</h1>
+  <form #personForm="ngForm" (submit)="personForm.valid && add_person(personForm)" novalidate>
+    <div class="form_row form_row--6">
+      <div class="form_col">
+        <mat-form-field>
+          <input matInput placeholder="Name"
+                 [(ngModel)]="model.name"
+                 required
+                 pattern="[a-zA-Z]*"
+                 #name
+                 name="name">
+        </mat-form-field>
+      </div>
+      <div class="form_col">
+        <mat-form-field>
+          <input matInput placeholder="Surname"
+                 [(ngModel)]="model.surname"
+                 required
+                 pattern="[a-zA-Z]*"
+                 #surname
+                 name="surname">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form_row form_row--6">
+      <div class="form_col">
+        <mat-form-field>
+          <mat-select placeholder="Gender"
+                      [(ngModel)]="model.gender"
+                      name="gender"
+                      required>
+            <mat-option [value]="1"> Male </mat-option>
+            <mat-option [value]="0"> Female </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form_col">
+        <mat-form-field>
+          <input matInput [matDatepicker]="birthday" placeholder="Birthday" [(ngModel)]="model.birthday" name="birthday" required>
+          <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+          <mat-datepicker #birthday startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form_row">
+      <mat-form-field>
+        <input matInput placeholder="E-mail"
+               [(ngModel)]="model.email"
+               name="email"
+               pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"
+               required>
+      </mat-form-field>
+    </div>
+    <div class="form_row">
+      <span class="mat-subheading-2">Show date of birth and age?</span>
+      <mat-slide-toggle [(ngModel)]="model.show_age" name="show_age" color="primary">{{model.show_age? 'Yes' : 'No'}}</mat-slide-toggle>
+    </div>
+    <div class="form_row">
+      <p class="form_row__title mat-subheading-2">Add or choose some #tags</p>
+      <div class="tags">
+        <p class="mat-subheading-1">Popular tags</p>
+        <div>
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of popular_tags" class="mat-caption" (click)="add_tag_from_popular(tag)">{{tag}}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+      <mat-form-field>
+        <mat-chip-list #chipList>
+          <mat-chip [removable]="true" *ngFor="let tag of tags">
+            {{ tag }}
+            <mat-icon matChipRemove (click)="remove_tag(tag)">cancel</mat-icon>
+          </mat-chip>
+          <input [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="true"
+                 (matChipInputTokenEnd)="add_tag($event)" />
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+    <div class="form_row">
+      <mat-form-field>
+        <textarea matTextareaAutosize matInput placeholder="About person" [(ngModel)]="model.about" name="about"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="form_row">
+      <button type="submit" mat-raised-button >Add person</button>
+    </div>
+  </form>
+</div>

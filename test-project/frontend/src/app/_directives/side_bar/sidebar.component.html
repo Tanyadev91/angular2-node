@@ -1,0 +1,9 @@
+<div class="sidebar">
+  <nav class="sidebar__nav navigate">
+    <ul>
+      <li class="navigate__item" *ngFor="let item of menu">
+        <a routerLinkActive="active" routerLink='{{item.link}}' mat-button>{{item.name}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>
